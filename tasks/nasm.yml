@@ -1,6 +1,6 @@
 - name: Download nasm archive
   get_url:
-    url: {{ nasm_url }}
+    url: "{{ nasm_url }}"
     dest: "{{ ffmpeg_source_dir }}/nasm"
 
 - name: Extract nasm
