@@ -4,3 +4,8 @@ ffmpeg_bin_dir: "/usr/local/bin"
 ffmpeg_env: 
   PKG_CONFIG_PATH: "{{ ffmpeg_build }}/lib/pkgconfig"
 ffmpeg_flags: "--extra-cflags=\"-I{{ ffmpeg_build }}/include\" --extra-ldflags=\"-L{{ ffmpeg_build }}/lib\" --bindir=\"{{ ffmpeg_bin_dir}}\" --extra-libs=-ldl --enable-gpl --enable-libass --enable-libfdk-aac --enable-libmp3lame --enable-libopus --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libspeex --enable-nonfree"
+
+nasm_name: nasm-2.13.02
+nasm_filename: "{{ nasm_name }}.tar.bz2"
+nasm_url: "http://www.nasm.us/pub/nasm/releasebuilds/2.13.02/{{ nasm_filename }}"
+nasm_dir: "{{ ffmpeg_source_dir }}/nasm/{{ nasm_name }}"
