@@ -1,15 +1,14 @@
+- name: Mkdir folder for nasm
+  command: "mkdir -p {{ ffmpeg_source_dir }}/nasm"
+
 - name: Download nasm archive
-  get_url:
-    url: "{{ nasm_url }}"
-    dest: "{{ ffmpeg_source_dir }}/nasm"
+  command: "wget {{ nasm_url }} chdir={{ ffmpeg_source_dir }}/nasm"
 
 - name: Extract nasm
-  unarchive:
-    src: "{{ ffmpeg_source_dir }}/nasm/{{ nasm_filename }}"
-    dest: "{{ ffmpeg_source_dir }}/nasm"
+  command: "tar xjvf {{ ffmpeg_source_dir }}/nasm/{{ nasm_filename }} chdir={{ ffmpeg_source_dir }}/nasm"
 
 - name: Compile nasm
-  shell: 'cd {{ ffmpeg_source_dir }}/nasm; {{ item }} creates={{ ffmpeg_bin_dir }}/nasm'
+  shell: 'cd {{ ffmpeg_source_dir }}/nasm/{{ nasm_version }}; {{ item }} creates={{ ffmpeg_bin_dir }}/nasm'
   with_items:
     - ./autogen.sh
     - ./configure --prefix={{ ffmpeg_build }} --bindir={{ ffmpeg_bin_dir }}
