@@ -1,4 +1,4 @@
-FFMPEG
+Ansible role for FFmpeg
 ========
 
 Installs FFMPEG from source code with the following libs:
@@ -11,11 +11,14 @@ Installs FFMPEG from source code with the following libs:
 - libmp3lame
 - x264
 - yasm
+- nasm
+
+Based on [Official FFmpeg Compilation Guide](https://trac.ffmpeg.org/wiki/CompilationGuide)
 
 Installation
 --------------
 
-`ansible-galaxy install palkan.ffmpeg`
+`ansible-galaxy install teachbase-ansible.ffmpeg`
 
 Role Variables
 --------------
@@ -35,4 +38,4 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - palkan.ffmpeg
+         - teachbase-ansible.ffmpeg
